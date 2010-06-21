@@ -1,0 +1,12 @@
+= jSpec Sandbox - a window sandbox for jQuery applications testing
+
+* jSpec Sandbox website: https://github.com/yannlugrin/jspec-sandbox
+* jSpec Sandbox on github: https://github.com/yannlugrin/jspec-sandbox
+* jSpec website: http://jspec.info
+* jQuery website: http://jquery.com
+
+Licensed under the MIT license (read LICENCE file). This library depends on
+jSpec, also licensed under the MIT licence.
+
+* jSpec Sandbox - Copyright (c) 2010 Yann Lugrin
+* jSpec - Copyright (c) 2010 TJ Holowaychuk
