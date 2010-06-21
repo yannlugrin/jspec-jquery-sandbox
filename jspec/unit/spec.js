@@ -1,7 +1,8 @@
 
 describe 'jspec-jquery-sandbox'
 
-  describe 'not loaded'
+  // not loaded
+  describe ''
 
     it 'should throw error if jQuery is not loaded'
       -{ eval(JSpec.load('../lib/jspec.jquery.sandbox.js')) }.should.throw_error /when using jspec.jquery.sandbox.js/
@@ -14,7 +15,8 @@ describe 'jspec-jquery-sandbox'
 
   end
 
-  describe 'loaded'
+  // loaded
+  describe ''
 
     before_each
       eval(JSpec.load('./support/jquery.js'))
@@ -22,6 +24,23 @@ describe 'jspec-jquery-sandbox'
       eval(JSpec.load('../lib/jspec.jquery.sandbox.js'))
     end
 
+    it '`sandbox` utility should be present'
+      sandbox.should.be_a Function
+    end
+
+    it '` _jQuery` (and _$ aload) utiliy should be present'
+      _jQuery.should.be_a Function
+      _$.should.be_a Function
+      _$.should.eql _jQuery
+    end
+
+    it '`_jQuery` should use jSpec context'
+      _jQuery('body').attr('id').should_not.eql 'sandbox'
+    end
+
+    it '`jQuery` should use sandbox context'
+      jQuery('body').attr('id').should.eql 'sandbox'
+    end
   end
 end
 
