@@ -35,17 +35,32 @@ describe 'jspec-jquery-sandbox'
     end
 
     it '`_jQuery` should use jSpec context'
-      _jQuery('body').attr('id').should_not.eql 'sandbox'
+      _jQuery('body').should_not.have_class 'sandbox'
+      _jQuery('body').should.have_class 'jspec'
     end
 
     it '`jQuery` should use sandbox context'
-      jQuery('body').attr('id').should.eql 'sandbox'
+      jQuery('body').should.have_class 'sandbox'
+      jQuery('body').should_not.have_class 'jspec'
+    end
+
+    it 'should use sandbox context'
+      jQuery('body').append('<p id="lorem-ipsum">Lorem Ispum</p>')
+
+      jQuery('body').should.have_child('#lorem-ipsum')
+      _jQuery('body').should_not.have_child('#lorem-ipsum')
     end
 
     it 'should throw error if sandbox iframe is not present'
-      _jQuery('#sandbox').attr('name', 'removed-sandbox')
+      _jQuery('iframe[name=sandbox]').attr('name', 'removed-sandbox')
       -{ jQuery('body') }.should.throw_error(/need a iframe named `sandbox' when using jspec.jquery.sandbox.js/)
-      _jQuery('#sandbox').attr('name', 'sandbox')
+      _jQuery('iframe[name=removed-sandbox]').attr('name', 'sandbox')
+    end
+
+    it 'should clear sandbox after spec'
+      jQuery('body').append('<p id="lorem-ipsum">Lorem Ispum</p>')
+      hook('afterSpec')
+      jQuery('body').html().should.be_empty
     end
 
   end
