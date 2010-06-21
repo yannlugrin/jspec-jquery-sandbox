@@ -41,6 +41,13 @@ describe 'jspec-jquery-sandbox'
     it '`jQuery` should use sandbox context'
       jQuery('body').attr('id').should.eql 'sandbox'
     end
+
+    it 'should throw error if sandbox iframe is not present'
+      _jQuery('#sandbox').attr('name', 'removed-sandbox')
+      -{ jQuery('body') }.should.throw_error(/need a iframe named `sandbox' when using jspec.jquery.sandbox.js/)
+      _jQuery('#sandbox').attr('name', 'sandbox')
+    end
+
   end
 end
 
