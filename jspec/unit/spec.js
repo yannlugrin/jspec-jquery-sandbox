@@ -24,11 +24,7 @@ describe 'jspec-jquery-sandbox'
       eval(JSpec.load('../lib/jspec.jquery.sandbox.js'))
     end
 
-    it '`sandbox` utility should be present'
-      sandbox.should.be_a Function
-    end
-
-    it '` _jQuery` (and _$ aload) utiliy should be present'
+    it '` _jQuery` (and _$ aload) should be present'
       _jQuery.should.be_a Function
       _$.should.be_a Function
       _$.should.eql _jQuery
@@ -63,6 +59,22 @@ describe 'jspec-jquery-sandbox'
       jQuery('body').html().should.be_empty
     end
 
+    describe 'sandbox method'
+
+      it 'should exist'
+        sandbox.should.be_a Function
+      end
+
+      it 'should return sandbox body element by default'
+        sandbox().should.have_class 'sandbox'
+      end
+
+      it 'should append html in argument to sandbox body and return it'
+        item = sandbox('<p>Lorem Ipsum</p>')
+        item.should.have_text 'Lorem Ipsum'
+        jQuery('body').should.have_child('p')
+      end
+    end
   end
 end
 
