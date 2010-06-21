@@ -18,7 +18,7 @@ describe 'jspec-jquery-sandbox'
   // loaded
   describe ''
 
-    before_each
+    before
       eval(JSpec.load('./support/jquery.js'))
       eval(JSpec.load('./lib/jspec.jquery.js'))
       eval(JSpec.load('../lib/jspec.jquery.sandbox.js'))
