@@ -70,10 +70,17 @@ describe 'jspec-jquery-sandbox'
       end
 
       it 'should append html in argument to sandbox body and return it'
-        item = sandbox('<p>Lorem Ipsum</p>')
-        item.should.have_text 'Lorem Ipsum'
+        item = sandbox(' <p class="test-p">Lorem Ipsum</p> ')
+        item.should.have_class 'test-p'
         jQuery('body').should.have_child('p')
       end
+
+      it 'should load fixture in argument to sandbox body and return it'
+        item = sandbox('test-div')
+        item.should.have_class 'test-div'
+        jQuery('body').should.have_child('div')
+      end
+
     end
   end
 end
