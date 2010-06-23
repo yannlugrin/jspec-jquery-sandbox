@@ -5,7 +5,7 @@
 * jSpec website: http://jspec.info
 * jQuery website: http://jquery.com
 
-Licensed under the MIT license (read LICENCE file). This library depends on
+Licensed under the MIT license (read LICENSE file). This library depends on
 jSpec, also licensed under the MIT licence.
 
 * jSpec Sandbox - Copyright (c) 2010 Yann Lugrin
