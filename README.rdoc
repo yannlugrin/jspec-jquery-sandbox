@@ -35,7 +35,7 @@ After this step edit `dom.html' file to require sanbox lib after jquery and
 add iframe with sandbox source.
 
   ...
-	<script src="./lib/jquery.js"></script>
+  <script src="./lib/jquery.js"></script>
   <script src="./support/jspec.jquery.sandbox.js"></script>
   <script>
     function runSuites() {
@@ -53,7 +53,7 @@ After this step edit `dom.html' file to require sanbox lib after jquery and
 add iframe with sandbox source.
 
   ...
-	<script src="./lib/jquery.js"></script>
+  <script src="./lib/jquery.js"></script>
   <script src="./support/jspec.jquery.sandbox.js"></script>
   <script>
     function runSuites() {
