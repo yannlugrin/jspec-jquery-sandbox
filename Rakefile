@@ -9,6 +9,7 @@ begin
     gem.email = 'yann.lugrin@sans-savoir.net'
     gem.homepage = 'http://github.com/yannlugrin/jspec-jquery-sandbox'
     gem.authors = ['Yann Lugrin']
+    gem.files = FileList["[A-Z]*", "{lib,src}/**/*"]
     gem.add_dependency 'jspec'
     gem.add_development_dependency 'rspec', '>= 2.0.0.beta'
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
