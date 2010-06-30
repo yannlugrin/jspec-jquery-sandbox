@@ -5,6 +5,65 @@
 * jSpec website: http://jspec.info
 * jQuery website: http://jquery.com
 
+== Documentation
+
+After sandbox is installed, all jQuery call is redirected in sandbox context
+(an iframe) and be reset after each test. You can use `_jQuery()' or `_$()' to
+call jQuery in jspec context.
+
+Utility `sandbox()' return a jQuery object from sandbox:
+
+ * sandbox() => return sandbox body
+ * sandbox('<p></p>') => append to sandboy body an `p' element and return it
+ * sandbox('my-fixture') => append a sandbox body the content of fixture file and return it (child of body element)
+
+=== install with jspec command tool
+
+First install [gem](http://gemcutter.org/) then execute:
+
+  $ sudo gem install jspec-jquery-sandbox
+
+At which point go into your projext folder and execute:
+
+  $ echo "require 'jspec/jquery/sandbox/installable'" > spec/commands/jquery_sandbox_command.rb
+  $ jspec install jquerysandbox
+
+This command add `jspec.jquery.sandbox.js' file into your `spec/support'
+folder and create `spec/sandbox.html' file.
+
+After this step edit `dom.html' file to require sanbox lib after jquery and
+add iframe with sandbox source.
+
+  ...
+	<script src="./lib/jquery.js"></script>
+  <script src="./support/jspec.jquery.sandbox.js"></script>
+  <script>
+    function runSuites() {
+  ...
+    <iframe id="sandbox" name="sandbox" src="./sandbox.html" style="display:none"></iframe>
+  </body>
+  ...
+
+=== install manually
+
+Just copy `jspec.jquery.sandbox.js' file from lib folder to your project
+`spec/support' folder, and `sandbox.htm' file to your `spec' folder.
+
+After this step edit `dom.html' file to require sanbox lib after jquery and
+add iframe with sandbox source.
+
+  ...
+	<script src="./lib/jquery.js"></script>
+  <script src="./support/jspec.jquery.sandbox.js"></script>
+  <script>
+    function runSuites() {
+  ...
+    <iframe id="sandbox" name="sandbox" src="./sandbox.html" style="display:none"></iframe>
+  </body>
+  ...
+
+== Copyright and Licenses
+
 Licensed under the MIT license (read LICENSE file). This library depends on
 jSpec, also licensed under the MIT licence.
 
