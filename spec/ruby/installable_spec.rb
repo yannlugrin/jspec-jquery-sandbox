@@ -22,12 +22,14 @@ describe 'jspec' do
         Dir.chdir @dest do
           jspec(:install, 'jquerysandbox')
           File.exists?('spec/support/jspec.jquery.sandbox.js').should be_true
+          File.exists?('spec/support/jspec.jquery.sandbox.html').should be_true
         end
       end
 
       it 'should install to the destination passed' do
         jspec(:install, 'jquerysandbox', "#{@dest}/spec")
         File.exists?("#{@dest}/spec/jspec.jquery.sandbox.js").should be_true
+        File.exists?("#{@dest}/spec/jspec.jquery.sandbox.html").should be_true
       end
 
     end

@@ -28,8 +28,8 @@ At which point go into your projext folder and execute:
   $ echo "require 'jspec/jquery/sandbox/installable'" > spec/commands/jquery_sandbox_command.rb
   $ jspec install jquerysandbox
 
-This command add `jspec.jquery.sandbox.js' file into your `spec/support'
-folder and create `spec/sandbox.html' file.
+This command add `jspec.jquery.sandbox.js' and `jspec.jquery.sandbox.html' files
+into your `spec/support' folder.
 
 After this step edit `dom.html' file to require sanbox lib after jquery and
 add iframe with sandbox source.
@@ -40,14 +40,14 @@ add iframe with sandbox source.
   <script>
     function runSuites() {
   ...
-    <iframe id="sandbox" name="sandbox" src="./sandbox.html" style="display:none"></iframe>
+    <iframe id="sandbox" name="sandbox" src="./support/jspec.jquery.sandbox.html" style="display:none"></iframe>
   </body>
   ...
 
 === install manually
 
-Just copy `jspec.jquery.sandbox.js' file from lib folder to your project
-`spec/support' folder, and `sandbox.htm' file to your `spec' folder.
+Just copy `jspec.jquery.sandbox.js' and `jspec.jquery.sandbox.html' files
+lib folder to your project `spec/support' folder.
 
 After this step edit `dom.html' file to require sanbox lib after jquery and
 add iframe with sandbox source.
@@ -58,7 +58,7 @@ add iframe with sandbox source.
   <script>
     function runSuites() {
   ...
-    <iframe id="sandbox" name="sandbox" src="./sandbox.html" style="display:none"></iframe>
+    <iframe id="sandbox" name="sandbox" src="./support/jspec.jquery.sandbox.html" style="display:none"></iframe>
   </body>
   ...
 

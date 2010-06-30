@@ -1,1 +1,1 @@
-require File.expand_path('../../../src/jspec/jquery/sandbox/installable', __FILE__)
+require 'jspec/jquery/sandbox/installable'
