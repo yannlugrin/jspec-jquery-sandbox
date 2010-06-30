@@ -20,3 +20,4 @@ pkg
 
 ## PROJECT::SPECIFIC
 jspec/commands/rack_command.rb
+jspec/support/jspec.jquery.sandbox.js
